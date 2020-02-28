@@ -11,9 +11,13 @@ new Vue({
             height: '100px',
             border: '1px solid black'
         },
+        progressBar: {
+            backgroundColor: 'cyan',
+            height: '50px',
+            width: '0px'
+        },
         attachRed: false,
         chosenClass: 'yellow',
-        progressWidth: 0,
         inputWidth: 50
     },
     methods: {
@@ -26,7 +30,11 @@ new Vue({
         },
         startProgress: function() {
             const v = this;
-            return setInterval(() => v.progressWidth += 5, 500);
+            let width = 0;
+            setInterval(() => {
+                width += 5;
+                v.progressBar.width = width + 'px';
+            },250)
         }
     }
 });
