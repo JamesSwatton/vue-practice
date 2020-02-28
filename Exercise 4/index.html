@@ -12,8 +12,7 @@
         <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
         <div>
             <button @click="startEffect">Start Effect</button>
-            <div id="effect" :class="{ highlight: attachHighlight, shrink:
-            !attachHighlight }"></div>
+            <div id="effect" :class="effectClasses"></div>
         </div>
         <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
         <div :class="['blue', 'highlight']">I got no class :(</div>
@@ -30,8 +29,8 @@
         </div>
         <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
         <div>
-            <input type="text">
-            <div></div>
+            <input type="text" v-model="myStyle.backgroundColor">
+            <div :style="myStyle"></div>
         </div>
         <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
         <div>
