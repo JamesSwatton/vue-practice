@@ -52,6 +52,9 @@ new Vue({
             this.monsterAttacks();
             this.logAttack('HEALS THEMSELF', playerHeal, monsterAttack);
         },
+        giveUP: function() {
+            this.game = false;
+        },
         monsterAttacks: function() {
             this.playerHealth -= this.calculateDamage(5, 12);
         },
