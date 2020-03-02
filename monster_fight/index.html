@@ -44,12 +44,12 @@
             <button @click="giveUP" id="give-up">GIVE UP</button>
         </div>
     </section>
-    <section class="row log">
+    <section v-if="turnLog.length> 0" class="row log">
         <div class="small-12 columns">
             <ul>
-                <li v-for="turn in fightLog">
-                    <p class="player-turn"> {{ turn[0] }}</p>
-                    <p class="monster-turn"> {{ turn[1] }}</p>
+                <li v-for="turn in turnLog">
+                    <p v-for="side in turn" :class="side.isPlayer ? 'player-turn'
+                        : 'monster-turn'"> {{ side.text }}</p>
                     <hr>
                 </li>
             </ul>
