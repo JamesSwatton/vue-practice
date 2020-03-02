@@ -1,7 +1,7 @@
 new Vue({
     el: '#app',
     data: {
-        startGame: false,
+        game: false,
         playerHealth: 100,
         monsterHealth: 100,
         fightLog: [],
@@ -10,14 +10,14 @@ new Vue({
         playerHealth: function() {
             if (this.playerHealth <= 0) {
                 if (window.confirm("You Lost: Try again?")) {
-                    this.giveUp();
+                    this.startGame();
                 }
             }
         },
         monsterHealth: function() {
             if (this.monsterHealth <= 0) {
                 if (window.confirm("You Won: Fight again?")) {
-                    this.giveUp();
+                    this.startGame();
                 }
             }
         }
@@ -44,8 +44,8 @@ new Vue({
             this.playerHealth -= monsterAttack;
             this.logAttack('HEALS THEMSELF', playerHeal, monsterAttack);
         },
-        giveUp: function() {
-            this.startGame = !this.startGame;
+        startGame: function() {
+            this.game = true;
             this.playerHealth = 100;
             this.monsterHealth = 100;
             this.fightLog = [];

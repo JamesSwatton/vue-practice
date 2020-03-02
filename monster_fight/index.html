@@ -31,9 +31,9 @@
             </div>
         </div>
     </section>
-    <section v-if="!startGame" class="row controls">
+    <section v-if="!game" class="row controls">
         <div class="small-12 columns">
-            <button @click="startGame = !startGame"id="start-game">START NEW GAME</button>
+            <button @click="startGame" id="start-game">START NEW GAME</button>
         </div>
     </section>
     <section v-else class="row controls">
@@ -41,7 +41,7 @@
             <button @click="attack(9)" id="attack">ATTACK</button>
             <button @click="attack(9, 12)" id="special-attack">SPECIAL ATTACK</button>
             <button @click="heal" id="heal">HEAL</button>
-            <button @click="giveUp"id="give-up">GIVE UP</button>
+            <button @click="startGame" id="give-up">GIVE UP</button>
         </div>
     </section>
     <section class="row log">
