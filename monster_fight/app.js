@@ -6,13 +6,10 @@ new Vue({
         monsterHealth: 100,
     },
     methods: {
-        attack: function() {
-            this.monsterHealth -= 1 + Math.floor(Math.random() * 9);
-            this.playerHealth -= 1 + Math.floor(Math.random() * 9);
-        },
-        specialAttack: function() {
-            this.monsterHealth -= 5 + Math.floor(Math.random() * 9);
-            this.playerHealth -= 1 + Math.floor(Math.random() * 9);
+        attack: function(attackAmount, specialAttackAmount = attackAmount) {
+            console.log(specialAttackAmount)
+            this.monsterHealth -= 1 + Math.floor(Math.random() * specialAttackAmount);
+            this.playerHealth -= 1 + Math.floor(Math.random() * attackAmount);
         },
         heal: function() {
             this.playerHealth += 1 + Math.floor(Math.random() * 12);
