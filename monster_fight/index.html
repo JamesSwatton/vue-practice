@@ -47,8 +47,10 @@
     <section class="row log">
         <div class="small-12 columns">
             <ul>
-                <li>
-
+                <li v-for="turn in fightLog">
+                    <p class="player-turn"> {{ turn[0] }}</p>
+                    <p class="monster-turn"> {{ turn[1] }}</p>
+                    <hr>
                 </li>
             </ul>
         </div>
