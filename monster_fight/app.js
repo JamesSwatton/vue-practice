@@ -44,10 +44,12 @@ new Vue({
             this.attack(10, 20)
         },
         heal: function() {
-            const playerHeal = 1 + Math.floor(Math.random() * 12);
+            if (this.playerHealth <= 90) {
+                this.playerHealth += 10;
+            } else {
+                this.playerHealth = 100;
+            }
             this.monsterAttacks();
-            this.playerHealth += playerHeal;
-            this.playerHealth -= monsterAttack;
             this.logAttack('HEALS THEMSELF', playerHeal, monsterAttack);
         },
         monsterAttacks: function() {
@@ -58,4 +60,3 @@ new Vue({
         }
     }
 })
-
